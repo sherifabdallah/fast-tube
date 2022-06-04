@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<form id="search-form" class="search-form relative" method="GET" onsubmit="loader()">
+    <input id="s_input" type="search" name="q" class="search__input" aria-label="Search" placeholder="Search or paste Youtube link here" value="">
+    <button id="btn-convert" class="btn-red" type="submit">Convert</button>
+</form>
+
+    <div id="search-result"><div class="detail"><div class="thumbnail"><input type="hidden" id="video_id" value="tSLNymQG_T0">
+    <div class="thumb-img"><img src="{{ thumbnail_url }}" width="100%" alt="yt1s youtube downloader"></div> 
+    <div class="content"><div class="clearfix">
+    <h3>
+        {{ title }}
+    </h3>
+    <p>{{ channel_name }}</p>
+    <p class="mag0">{{ video_length }}</p><div class="magT10"> <div class="flex block-xs">
+    <select class="form-control form-control-small" id="formatSelect">
+
+    <option>MP4 video </option>
+    </select>
+    <button id="btn-action" class="btn-blue-small form-control" type="button" onclick="downloadRes()">Get link</button><span id="mesg-convert" class="form-control mesg-convert hidden"> <span class="lds-dual-ring"></span> Converting, please wait...</span><a id="asuccess" class="form-control mesg-convert success hidden" rel="nofollow" href="https://yt1s.com/en260#"> Download </a> &nbsp; &nbsp;<a id="cnext" class="form-control mesg-convert hidden" href="https://yt1s.com/en260">Convert next</a><button id="breload" class="form-control btn-blue-small hidden" rel="nofollow" onclick="window.location.reload();"> Get link </button> &nbsp; &nbsp;</div><br><br><br> <div class="addthis_inline_share_toolbox"></div> </div></div></div></div><script type="text/javascript" src="./downloader_output_files/addthis_widget.js.download"></script> </div></div>
+    
+
+
+    <script>
+
+        function addOption(text, value) {
+        var formatSelect = document.getElementById("formatSelect");
+        var option = document.createElement("option");
+        option.text = text;
+        formatSelect.add(option);
+        }
+
+        p1080 = "{{ res_filterd.mp4_1080p_res }}".replaceAll("&amp;", "&");
+        p720 = "{{ res_filterd.mp4_720p_mp4_res }}".replaceAll("&amp;", "&");
+        p480 = "{{ res_filterd.mp4_480p_mp4_res }}".replaceAll("&amp;", "&");
+        p360 = "{{ res_filterd.mp4_360p_mp4_res }}".replaceAll("&amp;", "&");
+        p240 = "{{ res_filterd.mp4_240p_mp4_res }}".replaceAll("&amp;", "&");
+        p144 = "{{ res_filterd.mp4_144p_mp4_res }}".replaceAll("&amp;", "&");
+        pmp3 = "{{ res_filterd.mp3_res }}".replaceAll("&amp;", "&");
+
+        if(p1080 != "None") {
+            addOption("1080p");
+        }
+        if(p720 != "None") {
+            addOption("720p");
+        }
+        if(p480 != "None") {
+            addOption("480p");
+        }
+        if(p360 != "None") {
+            addOption("360p");
+        }
+        if(p240 != "None") {
+            addOption("240p");
+        }
+        if(p144 != "None") {
+            addOption("144p");
+        }
+        if(pmp3 != "None") {
+            addOption("MP3");
+        }
+
+        function NewTab(url) {
+            window.open(url, "_blank");
+        }
+
+        function downloadRes() {
+            var select = document.getElementById('formatSelect');
+            var value = select.options[select.selectedIndex].text;
+            console.log(value); // en
+            if(value == "1080p") {
+                NewTab(p1080);
+            }
+            if(value == "720p") {
+                NewTab(p720);
+            }
+            if(value == "480p") {
+                NewTab(p480);
+            }
+            if(value == "360p") {
+                NewTab(p360);
+            }
+            if(value == "240p") {
+                NewTab(p240);
+            }
+            if(value == "144p") {
+                NewTab(p144);
+            }
+            if(value == "MP3") {
+                NewTab(pmp3);
+            }
+        }
+
+
+
+
+    </script>
+
+    
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<form id="search-form" class="search-form relative" method="GET" action="{% url 'downloader:download' %}" onsubmit="loader()">
+<input id="s_input" type="search" name="q" class="search__input" aria-label="Search" placeholder="Search or paste Youtube link here" value="">
+<button id="btn-convert" class="btn-red" type="submit">Convert</button>
+</form>
+{% endblock content %}
