@@ -1,4 +1,4 @@
-# FastTube
+# fast-tube
 FastTube YouTube Downloader helps you save Youtube videos to your device. You can choose from a variety of formats and qualities to download.
 
 
@@ -66,4 +66,4 @@ session operates in a virtual environment set up by `virtualenv`.
 ## URL
 * You can also navigate to the main website without needing to install python, you can navigate it from [here](https://fasttube.pythonanywhere.com)
 ## Author
-[Sherif Abdullah](https://github.com/sherif-abdallah)
+[Sherif Abdullah](https://github.com/sherifabdallah)
